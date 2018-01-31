@@ -73,16 +73,19 @@ include 'inc/header.php';
 
 
 <div class="container">
-	<form action="#" method="post">
-		<input type="text" placeholder="Nom d'utilisateur" id="username" name="username">
-        <?php if (isset($message_username)) { echo $message_username; } ?>
-        <input type="password" placeholder="Mot de passe" id="password" name="password">
-         <?php if (isset($message_pass)) { echo $message_pass; } ?>
-        <input type="checkbox" id="remember" name="remember"> Se souvenir de moi
-        <?php if (isset($message_error)) { echo $message_error; } ?>
-        <input type="submit" name="login" id="login">
+	<div id="login-container">
+        <h1>Connexion</h1>
+        <form action="#" method="post">
+            <input type="text" placeholder="Nom d'utilisateur" id="username" name="username" class="db w100p p10">
+             <?php if (isset($message_username)) { echo $message_username; } ?>
+             <input type="password" placeholder="Mot de passe" id="password" name="password" class="db w100p p10">
+              <?php if (isset($message_pass)) { echo $message_pass; } ?>
+             <input type="checkbox" id="remember" name="remember"> Se souvenir de moi
+             <?php if (isset($message_error)) { echo $message_error; } ?>
+             <input type="submit" name="login" value="Connexion" id="login" class="btn btn-warning db w100p">
 
-	</form>
+        </form>   
+    </div>
 </div>
 
 <?
