@@ -1,7 +1,7 @@
 <?php 
-    sessionsion_start();
-    session_regenerate_id();   
-
+    session_start();
+    session_regenerate_id();
+    
 
     if (!isset($_POST["login"])) {
         if (isset($_SESSION["authentif"])) {
@@ -44,7 +44,6 @@
                 $row_user = $user_query -> fetch_array();
                 $_SESSION["authentif"] = $row_user["id_manager"];
                 $id = $row_user["id_manager"];
-                header("location:home.php");
             }else{
                 $user = $mysqli -> query("SELECT id_manager FROM managers WHERE username_manager = '".$_POST['username']."' OR mail_manager = '".$_POST['username']."'");
                 $nb_user=$user->num_rows;
