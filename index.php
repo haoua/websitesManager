@@ -1,9 +1,8 @@
 <?php 
-session_start();
-    session_regenerate_id();
+    sessionsion_start();
+    session_regenerate_id();   
 
-    error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
     if (!isset($_POST["login"])) {
         if (isset($_SESSION["authentif"])) {
             header("location:home.php");
@@ -25,12 +24,12 @@ ini_set('display_errors', 1);
         }
 
     }else{
-        include_once 'function/form_check.php';
+        include_once 'inc/function/form_check.php';
         $message_username = vide($_POST['username'], "nom d'utilisateur");
         $message_pass = vide($_POST['password'], "mot de passe");
 
         if ($GLOBALS["erreur"] == false) {
-            include_once 'config/connexion.php';
+            include_once 'inc/connexion.php';
             $user_query = $mysqli -> query("SELECT id_manager FROM managers WHERE (username_manager = '".$_POST['username']."' OR mail_manager = '".$_POST['username']."') AND password_manager = md5('".$_POST['password']."')");
             $nb_user = $user_query->num_rows;
             if ($nb_user == 1) {
@@ -61,13 +60,12 @@ ini_set('display_errors', 1);
 
 	/* *************** DEFINTION DATA PAR PAGE *************** */
 	$page_title = "Connexion";
-	// $description = "Planifiez vos séries, découvrez en de nouvelles et voyez celles que regardent vos amis";
 	$body_id = "login";
 	$code = "";
 
 
 
-include 'inc/header.php';
+include 'part/header.php';
 
 ?>
 
@@ -90,7 +88,7 @@ include 'inc/header.php';
 
 <?
 
-include 'inc/footer.php';
+include 'part/footer.php';
 
 
  ?>
